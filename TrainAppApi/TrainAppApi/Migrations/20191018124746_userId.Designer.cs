@@ -11,9 +11,10 @@ using WorkoutAppApi.Entities;
 namespace WorkoutAppApi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20191018124746_userId")]
+    partial class userId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -137,13 +138,15 @@ namespace WorkoutAppApi.Migrations
 
                     b.Property<int>("RepetitionsCount");
 
-                    b.Property<string>("UserId");
+                    b.Property<Guid>("UserId");
+
+                    b.Property<string>("UserId1");
 
                     b.Property<int>("Weight");
 
                     b.HasKey("ExerciseId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("Exercises");
                 });
@@ -254,7 +257,7 @@ namespace WorkoutAppApi.Migrations
                 {
                     b.HasOne("WorkoutAppApi.Entities.UserEntity", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId1");
                 });
 #pragma warning restore 612, 618
         }

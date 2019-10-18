@@ -12,6 +12,12 @@
     <Compile Remove="Migrations\20191017230337_identity.Designer.cs" />
     <Compile Remove="Migrations\20191017230505_identity2.cs" />
     <Compile Remove="Migrations\20191017230505_identity2.Designer.cs" />
+    <Compile Remove="Migrations\20191018115040_exercies_relationship2.cs" />
+    <Compile Remove="Migrations\20191018115040_exercies_relationship2.Designer.cs" />
+    <Compile Remove="Migrations\20191018115846_new.cs" />
+    <Compile Remove="Migrations\20191018115846_new.Designer.cs" />
+    <Compile Remove="Migrations\20191018124013_test_.cs" />
+    <Compile Remove="Migrations\20191018124013_test_.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +29,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
   </ItemGroup>
 
   <ItemGroup>
