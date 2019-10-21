@@ -8,7 +8,7 @@ namespace WorkoutAppApi.Entities
     public class AddExerciseModel
     {
         public string Name { get; set; }
-        public int Weight { get; set; }
+        public double Weight { get; set; }
         public int RepetitionsCount { get; set; }
     }
 }

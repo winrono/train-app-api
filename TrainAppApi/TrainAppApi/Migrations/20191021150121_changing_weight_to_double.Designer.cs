@@ -11,9 +11,10 @@ using WorkoutAppApi.Entities;
 namespace WorkoutAppApi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20191021150121_changing_weight_to_double")]
+    partial class changing_weight_to_double
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

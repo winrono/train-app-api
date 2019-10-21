@@ -10,12 +10,12 @@ using WorkoutAppApi.Entities;
 namespace WorkoutAppApi.Controllers
 {
     [Authorize]
-    public class WorkoutController : Controller
+    public class ExerciseController : Controller
     {
         private ApplicationContext _context;
         private SignInManager<UserEntity> _signInManager;
         private UserManager<UserEntity> _userManager;
-        public WorkoutController(ApplicationContext context, SignInManager<UserEntity> signInManager, UserManager<UserEntity> userManager)
+        public ExerciseController(ApplicationContext context, SignInManager<UserEntity> signInManager, UserManager<UserEntity> userManager)
         {
             _context = context;
             _signInManager = signInManager;
@@ -23,14 +23,14 @@ namespace WorkoutAppApi.Controllers
         }
         [HttpGet]
         // GET: /<controller>/
-        public async Task<IEnumerable<Exercise>> GetExercises()
+        public async Task<IEnumerable<Exercise>> Exercises()
         {
             var user = await _userManager.GetUserAsync(User);
             var userExercises = _context.Exercises.Where(x => x.User.Id == user.Id);
             return userExercises;
         }
         [HttpPost]
-        public async Task<IActionResult> AddExercise([FromBody] AddExerciseModel exercise)
+        public async Task<IActionResult> Exercises([FromBody] AddExerciseModel exercise)
         {
             var user = await _userManager.GetUserAsync(User);
             _context.Exercises.Add(new Exercise() { User = user, Name = exercise.Name, RepetitionsCount = exercise.RepetitionsCount, Weight = exercise.Weight });
@@ -39,7 +39,7 @@ namespace WorkoutAppApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> EditExercise([FromBody] EditExerciseModel exercise)
+        public async Task<IActionResult> Exercises([FromBody] EditExerciseModel exercise)
         {
             var user = await _userManager.GetUserAsync(User);
             var found = _context.Exercises.SingleOrDefault(x => x.ExerciseId == exercise.ExerciseId);

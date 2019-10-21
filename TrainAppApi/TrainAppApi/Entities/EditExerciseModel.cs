@@ -9,7 +9,7 @@ namespace WorkoutAppApi.Entities
     {
         public Guid ExerciseId { get; set; }
         public string Name { get; set; }
-        public int Weight { get; set; }
+        public double Weight { get; set; }
         public int RepetitionsCount { get; set; }
     }
 }
