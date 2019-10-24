@@ -41,11 +41,19 @@ namespace WorkoutAppApi.Controllers
         [HttpPut]
         public async Task<IActionResult> Exercises([FromBody] EditExerciseModel exercise)
         {
-            var user = await _userManager.GetUserAsync(User);
             var found = _context.Exercises.SingleOrDefault(x => x.ExerciseId == exercise.ExerciseId);
             found.Name = exercise.Name;
             found.RepetitionsCount = exercise.RepetitionsCount;
             found.Weight = exercise.Weight;
+            _context.SaveChanges();
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Exercises(Guid id)
+        {
+            var found = _context.Exercises.SingleOrDefault(x => x.ExerciseId == id);
+            _context.Remove(found);
             _context.SaveChanges();
             return Ok();
         }
