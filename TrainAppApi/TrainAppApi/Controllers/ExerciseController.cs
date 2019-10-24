@@ -26,14 +26,14 @@ namespace WorkoutAppApi.Controllers
         public async Task<IEnumerable<Exercise>> Exercises()
         {
             var user = await _userManager.GetUserAsync(User);
-            var userExercises = _context.Exercises.Where(x => x.User.Id == user.Id);
+            var userExercises = _context.Exercises.Where(x => x.User.Id == user.Id).OrderByDescending((e) => e.CreationTime);
             return userExercises;
         }
         [HttpPost]
         public async Task<IActionResult> Exercises([FromBody] AddExerciseModel exercise)
         {
             var user = await _userManager.GetUserAsync(User);
-            _context.Exercises.Add(new Exercise() { User = user, Name = exercise.Name, RepetitionsCount = exercise.RepetitionsCount, Weight = exercise.Weight });
+            _context.Exercises.Add(new Exercise() { User = user, Name = exercise.Name, RepetitionsCount = exercise.RepetitionsCount, Weight = exercise.Weight, CreationTime = exercise.CreationTime });
             _context.SaveChanges();
             return Ok();
         }

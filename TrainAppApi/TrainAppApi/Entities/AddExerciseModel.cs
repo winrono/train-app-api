@@ -10,5 +10,6 @@ namespace WorkoutAppApi.Entities
         public string Name { get; set; }
         public double Weight { get; set; }
         public int RepetitionsCount { get; set; }
+        public DateTime CreationTime { get; set; }
     }
 }

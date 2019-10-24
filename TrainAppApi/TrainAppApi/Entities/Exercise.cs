@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,5 +15,6 @@ namespace WorkoutAppApi.Entities
         public int RepetitionsCount { get; set; }
         [JsonIgnore]
         public virtual UserEntity User { get; set; }
+        public DateTime CreationTime { get; set; }
     }
 }

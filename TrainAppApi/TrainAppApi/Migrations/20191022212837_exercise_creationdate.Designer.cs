@@ -11,9 +11,10 @@ using WorkoutAppApi.Entities;
 namespace WorkoutAppApi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20191022212837_exercise_creationdate")]
+    partial class exercise_creationdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,7 +134,8 @@ namespace WorkoutAppApi.Migrations
                     b.Property<Guid>("ExerciseId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreationTime");
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("Date");
 
                     b.Property<string>("Name");
 
